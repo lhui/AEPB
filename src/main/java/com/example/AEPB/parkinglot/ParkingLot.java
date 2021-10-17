@@ -1,15 +1,22 @@
 package com.example.AEPB.parkinglot;
 
+import com.example.AEPB.CanNotGetTicketException;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static java.util.Objects.isNull;
+
 public class ParkingLot {
     private Map<Ticket, Car> parkingLotMap = new HashMap<>();
     private static final int MAX_PARKING_COUNT = 50;
-    
+
 
     public Ticket parkingCarAndGetTicket(Car car) {
+        if (isNull(car)) {
+            throw new CanNotGetTicketException("You need at least car to get a ticket.");
+        }
         if (parkingLotMap.size() == MAX_PARKING_COUNT) {
             return null;
         }
