@@ -6,4 +6,8 @@ public class Ticket {
     public Ticket(String ticketNumber) {
         this.ticketNumber = ticketNumber;
     }
+
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
 }

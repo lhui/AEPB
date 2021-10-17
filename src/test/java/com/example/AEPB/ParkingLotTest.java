@@ -50,9 +50,10 @@ class ParkingLotTest {
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_empty_parkingLot_and_one_parking_car() {
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car("vin");
-        parkingLot.parkingCarAndGetTicket(car);
+        Ticket ticket = parkingLot.parkingCarAndGetTicket(car);
         Assertions.assertEquals(1, parkingLot.getTicketCount());
         Assertions.assertEquals(49, parkingLot.getParkingLotSpace());
+        Assertions.assertEquals(UUID.randomUUID().toString().length(), ticket.getTicketNumber().length());
     }
 
     @Test
@@ -121,7 +122,6 @@ class ParkingLotTest {
     @Test
     void should_park_car_and_get_ticket_failed_throw_exception_when_parking_car_given_one_empty_parkingLot_and_no_parking_car() {
         ParkingLot parkingLot = new ParkingLot();
-        Car car = null;
         Assertions.assertThrows(CanNotGetTicketException.class, () -> parkingLot.parkingCarAndGetTicket(null));
     }
 
@@ -130,7 +130,6 @@ class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car("vin");
         parkingLot.parkingCarAndGetTicket(car);
-        Ticket ticket = null;
         Assertions.assertThrows(NullTicketCanNotGetCarException.class, () -> parkingLot.getCar(null));
     }
 
