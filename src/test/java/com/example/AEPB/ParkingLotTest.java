@@ -16,7 +16,6 @@ import java.util.UUID;
  * when 存车
  * then 存车成功并拿到存车票
  *
- *
  * given 一个存有想要取的车的停车场和对应的车票
  * when 取车
  * then 取车成功并拿到车
@@ -51,7 +50,7 @@ class ParkingLotTest {
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_empty_parkingLot_and_one_parking_car() {
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car("vin");
-        Ticket ticket = parkingLot.parkingCarAndGetTicket(car);
+        parkingLot.parkingCarAndGetTicket(car);
         Assertions.assertEquals(1, parkingLot.getTicketCount());
         Assertions.assertEquals(49, parkingLot.getParkingLotSpace());
     }
@@ -123,7 +122,7 @@ class ParkingLotTest {
     void should_park_car_and_get_ticket_failed_throw_exception_when_parking_car_given_one_empty_parkingLot_and_no_parking_car() {
         ParkingLot parkingLot = new ParkingLot();
         Car car = null;
-        Assertions.assertThrows(CanNotGetTicketException.class, () -> parkingLot.parkingCarAndGetTicket(car));
+        Assertions.assertThrows(CanNotGetTicketException.class, () -> parkingLot.parkingCarAndGetTicket(null));
     }
 
     @Test
@@ -132,7 +131,7 @@ class ParkingLotTest {
         Car car = new Car("vin");
         parkingLot.parkingCarAndGetTicket(car);
         Ticket ticket = null;
-        Assertions.assertThrows(NullTicketCanNotGetCarException.class, () -> parkingLot.getCar(ticket));
+        Assertions.assertThrows(NullTicketCanNotGetCarException.class, () -> parkingLot.getCar(null));
     }
 
 
