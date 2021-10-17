@@ -124,5 +124,14 @@ class ParkingLotTest {
         Assertions.assertThrows(CanNotGetTicketException.class, () -> parkingLot.parkingCarAndGetTicket(car));
     }
 
+    @Test
+    void should_get_car_failed_when_take_the_car_given_one_car_parkingLot_and_no_ticket() {
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car("vin");
+        parkingLot.parkingCarAndGetTicket(car);
+        Ticket ticket = null;
+        Assertions.assertThrows(NullTicketCanNotGetCarException.class, () -> parkingLot.getCar(ticket));
+    }
+
 
 }

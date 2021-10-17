@@ -1,6 +1,7 @@
 package com.example.AEPB.parkinglot;
 
 import com.example.AEPB.CanNotGetTicketException;
+import com.example.AEPB.NullTicketCanNotGetCarException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class ParkingLot {
 
     public Ticket parkingCarAndGetTicket(Car car) {
         if (isNull(car)) {
-            throw new CanNotGetTicketException("You need at least car to get a ticket.");
+            throw new CanNotGetTicketException("You need at least one car to get a ticket.");
         }
         if (parkingLotMap.size() == MAX_PARKING_COUNT) {
             return null;
@@ -34,8 +35,11 @@ public class ParkingLot {
     }
 
     public Car getCar(Ticket ticket) {
+        if (isNull(ticket)) {
+            throw new NullTicketCanNotGetCarException("You need at least one ticket to get a car.");
+        }
         if (!parkingLotMap.containsKey(ticket)) {
-            throw new CarNotFoundException("the Car can not be found in the parkingLot");
+            throw new CarNotFoundException("The car can not be found in the parkingLot.");
         }
         Car car = parkingLotMap.get(ticket);
         parkingLotMap.remove(ticket);
