@@ -6,4 +6,8 @@ public class Car {
     public Car(String vin) {
         this.vin = vin;
     }
+
+    public String getVin() {
+        return vin;
+    }
 }
