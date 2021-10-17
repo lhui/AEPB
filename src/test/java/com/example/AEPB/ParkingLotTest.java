@@ -1,9 +1,11 @@
 package com.example.AEPB;
 
 import com.example.AEPB.parkinglot.Car;
-import com.example.AEPB.parkinglot.CarNotFoundException;
 import com.example.AEPB.parkinglot.ParkingLot;
 import com.example.AEPB.parkinglot.Ticket;
+import com.example.AEPB.parkinglot.exception.CanNotGetTicketException;
+import com.example.AEPB.parkinglot.exception.CarNotFoundException;
+import com.example.AEPB.parkinglot.exception.NullTicketCanNotGetCarException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
