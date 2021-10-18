@@ -19,7 +19,7 @@ public class ParkingLot {
             throw new CanNotGetTicketException("You need at least one car to get a ticket.");
         }
         if (parkingLotMap.size() == MAX_PARKING_COUNT) {
-            return null;
+            throw new ParkingLotIsFullException("The parkingLot is full, can not parking any car.");
         }
         Ticket ticket = new Ticket();
         parkingLotMap.put(ticket, car);
