@@ -36,6 +36,6 @@ public class ParkingLot {
         Car car = parkingLotMap.get(ticket);
         parkingLotMap.remove(ticket);
         return car;
-
     }
+
 }
