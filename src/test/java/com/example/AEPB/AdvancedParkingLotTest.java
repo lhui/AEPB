@@ -12,7 +12,7 @@ class AdvancedParkingLotTest {
      * 1、
      * given 10个停车场都未停车，停车小子，一辆车
      * when 停车
-     * then 停车成功并获得车票
+     * then 停车成功并获得车票，确定停到1号停车场
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_ten_empty_parkingLots_and_parking_boy_and_one_parking_car() {
@@ -26,7 +26,7 @@ class AdvancedParkingLotTest {
      * 2、
      * given 10个停车场都未停车，自停1号停车场，一辆车
      * when 停车
-     * then 停车成功并获得车票
+     * then 停车成功并获得车票，确定停到1号停车场
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_ten_empty_parkingLots_and_self_parking_No1_parkingLot_and_one_parking_car() {
@@ -35,4 +35,89 @@ class AdvancedParkingLotTest {
         Ticket ticket = parkingLotGroup.parkingCarAndGetTicketBySelfParking(car, 1);
         Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndParkingBoy(ticket));
     }
+
+    /*
+     * 3、
+     * given 10个停车场都停满，停车小子，一辆车
+     * when 停车
+     * then 停车失败抛出异常
+     * */
+
+    /*
+     * 4、
+     * given 10个停车场都停满，自停1号停车场，一辆车
+     * when 停车
+     * then 停车失败抛出异常
+     * */
+
+    /*
+     * 5、
+     * given 10个停车场都未停车，自停2号停车场，一辆车
+     * when 停车
+     * then 停车成功并获得车票，确定停到2号停车场
+     * */
+
+    /*
+     * 6、
+     * given 1号停车场有一个空位，2号停车场停了一辆车，停车小子，一辆车
+     * when 停车
+     * then 停车成功并获得车票，确定停到1号停车场
+     * */
+
+    /*
+     * 7、
+     * given 1号停车场有一个空位，2号停车场停了一辆车，自停2号停车场，一辆车
+     * when 停车
+     * then 停车成功并获得车票，确定停到1号停车场
+     * */
+
+    /*
+     * 8、
+     * given 1号停车场有一个空位，2号停车场停了一辆车，自停1号停车场，一辆车
+     * when 停车
+     * then 停车成功并获得车票，确定停到1号停车场
+     * */
+
+    /*
+     * 9、
+     * given 1号停车场停有一辆车，自取1号停车场，对应票
+     * when 取车
+     * then 取车成功
+     * */
+
+    /*
+     * 10、
+     * given 1号停车场停有一辆车，自取2号停车场，1号停车场的对应票
+     * when 取车
+     * then 取车失败并抛异常
+     * */
+
+    /*
+     * 11、
+     * given 1号停车场停有一辆车，停车小子，对应票
+     * when 取车
+     * then 取车成功
+     * */
+
+    /*
+     * 12、
+     * given 1号停车场停有一辆车，自取1号停车场，无效票
+     * when 取车
+     * then 取车失败并抛异常
+     * */
+
+    /*
+     * 13、
+     * given 1号停车场停有一辆车，自取2号停车场，无效票
+     * when 取车
+     * then 取车失败并抛异常
+     * */
+
+    /*
+     * 14、
+     * given 1号停车场停有一辆车，停车小子，无效票
+     * when 取车
+     * then 取车失败并抛异常
+     * */
+
 }
