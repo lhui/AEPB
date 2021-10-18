@@ -23,7 +23,9 @@ public class ParkingLotGroup {
         for (int i = 1; i <= 10; i++) {
             try {
                 ParkingLot parkingLot = parkingLotMap.get(i);
-                return parkingLot.parkingCarAndGetTicket(car);
+                Ticket ticket = parkingLot.parkingCarAndGetTicket(car);
+                parkingLotMap.put(i, parkingLot);
+                return ticket;
             } catch (Exception e) {
             }
         }
@@ -33,5 +35,10 @@ public class ParkingLotGroup {
     public Car getCarByTicketAndSelfParking(Ticket ticket, int i) {
         ParkingLot parkingLot = parkingLotMap.get(i);
         return parkingLot.getCar(ticket);
+    }
+
+    public Ticket parkingCarAndGetTicketBySelfParking(Car car, int i) {
+        ParkingLot parkingLot = parkingLotMap.get(i);
+        return parkingLot.parkingCarAndGetTicket(car);
     }
 }
