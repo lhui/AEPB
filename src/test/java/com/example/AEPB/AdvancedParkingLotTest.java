@@ -2,6 +2,7 @@ package com.example.AEPB;
 
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.Ticket;
+import com.example.AEPB.parkinglot.exception.CarNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -42,6 +43,16 @@ class AdvancedParkingLotTest {
      * when 停车
      * then 停车失败抛出异常
      * */
+    @Test
+    void should_park_car_and_get_ticket_failed_when_parking_car_given_ten_full_parkingLots_and_parking_boy_and_one_parking_car() {
+        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+        for (int i = 0; i < 500; i++) {
+            Car car = new Car();
+            parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+        }
+        Car newCar = new Car();
+        Assertions.assertThrows(ParkingLotGroupIsFullException.class, () -> parkingLotGroup.parkingCarAndGetTicketByParkingBoy(newCar));
+    }
 
     /*
      * 4、
