@@ -6,7 +6,6 @@ import com.example.AEPB.parkinglot.exception.NullTicketCanNotGetCarException;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import static java.util.Objects.isNull;
 
@@ -22,17 +21,9 @@ public class ParkingLot {
         if (parkingLotMap.size() == MAX_PARKING_COUNT) {
             return null;
         }
-        Ticket ticket = new Ticket(UUID.randomUUID().toString());
+        Ticket ticket = new Ticket();
         parkingLotMap.put(ticket, car);
         return ticket;
-    }
-
-    public int getTicketCount() {
-        return parkingLotMap.size();
-    }
-
-    public int getParkingLotSpace() {
-        return MAX_PARKING_COUNT - getTicketCount();
     }
 
     public Car getCar(Ticket ticket) {
