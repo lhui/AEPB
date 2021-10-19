@@ -151,6 +151,13 @@ class AdvancedParkingLotTest {
      * when 取车
      * then 取车成功
      * */
+    @Test
+    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_and_self_take_No1_parkingLot_and_one_matched_ticket() {
+        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+        Car car = new Car();
+        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+        Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndSelfParking(ticket, 1));
+    }
 
     /*
      * 10、
