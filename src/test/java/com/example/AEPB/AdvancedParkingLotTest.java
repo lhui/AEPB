@@ -152,7 +152,7 @@ class AdvancedParkingLotTest {
      * then 取车成功
      * */
     @Test
-    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_and_self_take_No1_parkingLot_and_one_matched_ticket() {
+    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No1_parkingLot_and_one_matched_ticket() {
         ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
         Car car = new Car();
         Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
@@ -166,7 +166,7 @@ class AdvancedParkingLotTest {
      * then 取车失败并抛异常
      * */
     @Test
-    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_and_self_take_No2_parkingLot_and_one_matched_ticket_for_No1_parkingLot() {
+    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No2_parkingLot_and_one_matched_ticket_for_No1_parkingLot() {
         ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
         Car car = new Car();
         Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
@@ -179,6 +179,13 @@ class AdvancedParkingLotTest {
      * when 取车
      * then 取车成功
      * */
+    @Test
+    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_matched_ticket() {
+        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+        Car car = new Car();
+        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+        Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndParkingBoy(ticket));
+    }
 
     /*
      * 12、
