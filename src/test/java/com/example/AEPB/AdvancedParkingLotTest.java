@@ -2,16 +2,13 @@ package com.example.AEPB;
 
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.Ticket;
-import com.example.AEPB.parkinglot.exception.CarNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.UUID;
 
 class AdvancedParkingLotTest {
     /*
      * 1、
-     * given 10个停车场都未停车，停车小子，一辆车
+     * given 10个停车场都未停车，ParkingBoy，停放一辆车
      * when 停车
      * then 停车成功并获得车票，确定停到1号停车场
      * */
@@ -25,9 +22,9 @@ class AdvancedParkingLotTest {
 
     /*
      * 2、
-     * given 10个停车场都未停车，自停1号停车场，一辆车
+     * given 10个停车场都未停车，自己将一辆车停1号停车场，
      * when 停车
-     * then 停车成功并获得车票，确定停到1号停车场
+     * then 停车成功并获得车票，并确定停到1号停车场
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_ten_empty_parkingLots_and_self_parking_No1_parkingLot_and_one_parking_car() {
@@ -39,7 +36,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 3、
-     * given 10个停车场都停满，停车小子，一辆车
+     * given 10个停车场都停满，ParkingBoy，停放一辆车
      * when 停车
      * then 停车失败抛出异常
      * */
@@ -56,7 +53,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 4、
-     * given 10个停车场都停满，自停1号停车场，一辆车
+     * given 10个停车场都停满，自己停一辆车到1号停车场，
      * when 停车
      * then 停车失败抛出异常
      * */
@@ -73,9 +70,9 @@ class AdvancedParkingLotTest {
 
     /*
      * 5、
-     * given 10个停车场都未停车，自停2号停车场，一辆车
+     * given 10个停车场都未停车，自己停一辆车到2号停车场，
      * when 停车
-     * then 停车成功并获得车票，确定停到2号停车场
+     * then 停车成功并获得车票，并确定停到2号停车场
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_ten_empty_parkingLots_and_self_parking_No2_parkingLot_and_one_parking_car() {
@@ -87,9 +84,9 @@ class AdvancedParkingLotTest {
 
     /*
      * 6、
-     * given 1号停车场有一个空位，2号停车场停了一辆车，停车小子，一辆车
+     * given 1号停车场有一个空位，2号停车场停了一辆车，ParingBoy，停放一辆车
      * when 停车
-     * then 停车成功并获得车票，确定停到1号停车场
+     * then 停车成功并获得车票，并确定停到1号停车场
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_No1_parkingLot_has_49_cars_and_No2_parkingLot_has_one_car_and_parking_boy_and_one_parking_car() {
@@ -107,7 +104,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 7、
-     * given 1号停车场有一个空位，2号停车场停了一辆车，自停2号停车场，一辆车
+     * given 1号停车场有一个空位，2号停车场停了一辆车，自己停一辆车2号停车场
      * when 停车
      * then 停车成功并获得车票，确定停到2号停车场
      * */
@@ -127,9 +124,9 @@ class AdvancedParkingLotTest {
 
     /*
      * 8、
-     * given 1号停车场有一个空位，2号停车场停了一辆车，自停1号停车场，一辆车
+     * given 1号停车场有一个空位，2号停车场停了一辆车，自己停放一辆车到1号停车场
      * when 停车
-     * then 停车成功并获得车票，确定停到1号停车场
+     * then 停车成功并获得车票，并确定停到1号停车场
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_No1_parkingLot_has_49_cars_and_No2_parkingLot_has_one_car_and_self_parking_No1_parkingLot_and_one_parking_car() {
@@ -147,7 +144,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 9、
-     * given 1号停车场停有一辆车，自取1号停车场，对应票
+     * given 1号停车场停有一辆车，自己使用对应票取1号停车场到对应车
      * when 取车
      * then 取车成功
      * */
@@ -161,7 +158,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 10、
-     * given 1号停车场停有一辆车，自取2号停车场，1号停车场的对应票
+     * given 1号停车场停有一辆车，自己1号停车场的对应票取2号停车场
      * when 取车
      * then 取车失败并抛异常
      * */
@@ -175,7 +172,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 11、
-     * given 1号停车场停有一辆车，停车小子，对应票
+     * given 1号停车场停有一辆车，给ParkingBoy对应票
      * when 取车
      * then 取车成功
      * */
@@ -189,7 +186,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 12、
-     * given 1号停车场停有一辆车，自取1号停车场，无效票
+     * given 1号停车场停有一辆车，自己无效票取1号停车场
      * when 取车
      * then 取车失败并抛异常
      * */
@@ -203,7 +200,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 13、
-     * given 1号停车场停有一辆车，自取2号停车场，无效票
+     * given 1号停车场停有一辆车，自己无效票取2号停车场到车
      * when 取车
      * then 取车失败并抛异常
      * */
@@ -217,7 +214,7 @@ class AdvancedParkingLotTest {
 
     /*
      * 14、
-     * given 1号停车场停有一辆车，停车小子，无效票
+     * given 1号停车场停有一辆车，给ParkingBoy无效票
      * when 取车
      * then 取车失败并抛异常
      * */
