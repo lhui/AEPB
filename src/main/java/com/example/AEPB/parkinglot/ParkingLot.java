@@ -3,6 +3,7 @@ package com.example.AEPB.parkinglot;
 import com.example.AEPB.parkinglot.exception.CanNotGetTicketException;
 import com.example.AEPB.parkinglot.exception.CarNotFoundException;
 import com.example.AEPB.parkinglot.exception.NullTicketCanNotGetCarException;
+import com.example.AEPB.parkinglot.exception.ParkingLotIsFullException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,4 +39,7 @@ public class ParkingLot {
         return car;
     }
 
+    public boolean checkParkingLotIsFull(){
+        return parkingLotMap.size() == MAX_PARKING_COUNT;
+    }
 }
