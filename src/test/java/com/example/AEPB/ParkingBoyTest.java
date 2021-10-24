@@ -1,6 +1,6 @@
 package com.example.AEPB;
 
-import com.example.AEPB.parkingBoy.ParkingBoy;
+import com.example.AEPB.parkingboy.ParkingBoy;
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.ParkingLot;
 import com.example.AEPB.parkinglot.exception.CarNotFoundException;

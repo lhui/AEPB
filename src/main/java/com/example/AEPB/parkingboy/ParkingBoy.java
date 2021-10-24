@@ -1,4 +1,4 @@
-package com.example.AEPB.parkingBoy;
+package com.example.AEPB.parkingboy;
 
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.ParkingLot;
