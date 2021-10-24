@@ -24,7 +24,7 @@ class AdvancedParkingLotTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotMap);
         Car car = new Car();
         Ticket ticket = parkingBoy.parkingCar(car);
-        Assertions.assertEquals(car, ParkingBoy.pickUpCar(ticket));
+        Assertions.assertEquals(car, parkingBoy.pickUpCar(ticket));
     }
 
     private Map<String, ParkingLot> creatParkingLots() {
@@ -172,74 +172,74 @@ class AdvancedParkingLotTest {
         Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndSelfParking(ticket, 1));
     }
 
-    /*
-     * 10、
-     * given 1号停车场停有一辆车，自己1号停车场的对应票取2号停车场
-     * when 取车
-     * then 取车失败并抛异常
-     * */
-    @Test
-    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No2_parkingLot_and_one_matched_ticket_for_No1_parkingLot() {
-        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
-        Car car = new Car();
-        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
-        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndSelfParking(ticket, 2));
-    }
-
-    /*
-     * 11、
-     * given 1号停车场停有一辆车，给ParkingBoy对应票
-     * when 取车
-     * then 取车成功
-     * */
-    @Test
-    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_matched_ticket() {
-        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
-        Car car = new Car();
-        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
-        Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndParkingBoy(ticket));
-    }
-
-    /*
-     * 12、
-     * given 1号停车场停有一辆车，自己无效票取1号停车场
-     * when 取车
-     * then 取车失败并抛异常
-     * */
-    @Test
-    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No1_parkingLot_and_one_invalid_ticket() {
-        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
-        Car car = new Car();
-        parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
-        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndSelfParking(null, 1));
-    }
-
-    /*
-     * 13、
-     * given 1号停车场停有一辆车，自己无效票取2号停车场到车
-     * when 取车
-     * then 取车失败并抛异常
-     * */
-    @Test
-    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No2_parkingLot_and_one_invalid_ticket() {
-        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
-        Car car = new Car();
-        parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
-        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndSelfParking(null, 2));
-    }
-
-    /*
-     * 14、
-     * given 1号停车场停有一辆车，给ParkingBoy无效票
-     * when 取车
-     * then 取车失败并抛异常
-     * */
-    @Test
-    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_invalid_ticket() {
-        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
-        Car car = new Car();
-        parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
-        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndParkingBoy(null));
-    }
+//    /*
+//     * 10、
+//     * given 1号停车场停有一辆车，自己1号停车场的对应票取2号停车场
+//     * when 取车
+//     * then 取车失败并抛异常
+//     * */
+//    @Test
+//    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No2_parkingLot_and_one_matched_ticket_for_No1_parkingLot() {
+//        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+//        Car car = new Car();
+//        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+//        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndSelfParking(ticket, 2));
+//    }
+//
+//    /*
+//     * 11、
+//     * given 1号停车场停有一辆车，给ParkingBoy对应票
+//     * when 取车
+//     * then 取车成功
+//     * */
+//    @Test
+//    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_matched_ticket() {
+//        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+//        Car car = new Car();
+//        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+//        Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndParkingBoy(ticket));
+//    }
+//
+//    /*
+//     * 12、
+//     * given 1号停车场停有一辆车，自己无效票取1号停车场
+//     * when 取车
+//     * then 取车失败并抛异常
+//     * */
+//    @Test
+//    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No1_parkingLot_and_one_invalid_ticket() {
+//        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+//        Car car = new Car();
+//        parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+//        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndSelfParking(null, 1));
+//    }
+//
+//    /*
+//     * 13、
+//     * given 1号停车场停有一辆车，自己无效票取2号停车场到车
+//     * when 取车
+//     * then 取车失败并抛异常
+//     * */
+//    @Test
+//    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_self_take_No2_parkingLot_and_one_invalid_ticket() {
+//        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+//        Car car = new Car();
+//        parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+//        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndSelfParking(null, 2));
+//    }
+//
+//    /*
+//     * 14、
+//     * given 1号停车场停有一辆车，给ParkingBoy无效票
+//     * when 取车
+//     * then 取车失败并抛异常
+//     * */
+//    @Test
+//    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_invalid_ticket() {
+//        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+//        Car car = new Car();
+//        parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
+//        Assertions.assertThrows(TicketNotFoundCarException.class, () -> parkingLotGroup.getCarByTicketAndParkingBoy(null));
+//    }
 
 }
