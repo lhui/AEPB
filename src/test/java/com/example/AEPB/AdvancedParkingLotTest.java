@@ -1,9 +1,15 @@
 package com.example.AEPB;
 
+import com.example.AEPB.parkingBoy.ParkingBoy;
 import com.example.AEPB.parkinglot.Car;
+import com.example.AEPB.parkinglot.ParkingLot;
 import com.example.AEPB.parkinglot.Ticket;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.IntStream;
 
 class AdvancedParkingLotTest {
     /*
@@ -14,10 +20,20 @@ class AdvancedParkingLotTest {
      * */
     @Test
     void should_park_car_and_get_ticket_successfully_when_parking_car_given_ten_empty_parkingLots_and_parking_boy_and_one_parking_car() {
-        ParkingLotGroup parkingLotGroup = new ParkingLotGroup();
+        Map<String, ParkingLot> parkingLotMap = creatParkingLots();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotMap);
         Car car = new Car();
-        Ticket ticket = parkingLotGroup.parkingCarAndGetTicketByParkingBoy(car);
-        Assertions.assertEquals(car, parkingLotGroup.getCarByTicketAndSelfParking(ticket, 1));
+        Ticket ticket = parkingBoy.parkingCar(car);
+        Assertions.assertEquals(car, ParkingBoy.pickUpCar(ticket));
+    }
+
+    private Map<String, ParkingLot> creatParkingLots() {
+        Map<String, ParkingLot> parkingLotMap = new HashMap<>();
+        IntStream.rangeClosed(1, 10).forEach(parkingLotNumber -> {
+            ParkingLot parkingLot = new ParkingLot();
+            parkingLotMap.put(String.valueOf(parkingLotNumber), parkingLot);
+        });
+        return parkingLotMap;
     }
 
     /*
