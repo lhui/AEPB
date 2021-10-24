@@ -39,7 +39,11 @@ public class ParkingLot {
         return car;
     }
 
-    public boolean checkParkingLotIsFull(){
+    public boolean checkParkingLotIsFull() {
         return parkingLotMap.size() == MAX_PARKING_COUNT;
+    }
+
+    public int getParkingLotCarCount() {
+        return MAX_PARKING_COUNT - parkingLotMap.size();
     }
 }

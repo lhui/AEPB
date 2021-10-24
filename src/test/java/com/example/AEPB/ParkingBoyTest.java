@@ -3,10 +3,10 @@ package com.example.AEPB;
 import com.example.AEPB.parkingboy.ParkingBoy;
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.ParkingLot;
+import com.example.AEPB.parkinglot.Ticket;
 import com.example.AEPB.parkinglot.exception.CarNotFoundException;
 import com.example.AEPB.parkinglot.exception.NullTicketCanNotGetCarException;
 import com.example.AEPB.parkinglot.exception.ParkingLotIsFullException;
-import com.example.AEPB.parkinglot.Ticket;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -205,7 +205,7 @@ class ParkingBoyTest {
      * then 取车成功
      * */
     @Test
-    void should_get_car_failed_and_throw_exception_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_matched_ticket() {
+    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_parking_boy_and_one_matched_ticket() {
         Map<String, ParkingLot> parkingLotMap = creatParkingLots();
         Car car = new Car();
         Ticket ticket = parkingLotMap.get("1").parkingCarAndGetTicket(car);
