@@ -20,7 +20,7 @@ class ParkingRobotTest {
      * then 停车成功并获得车票，停在了2号停车位
      * */
     @Test
-    void should_park_car_at_no2_parking_lot_and_get_ticket_successfully_when_parking_car_given_two_parking_lot_and_no1_parking_lot_has_10_parking_space_one_car_parked_and_no2_parking_lot_has_30_parking_space_two_car_parked_and_parking_robot_and_one_car(){
+    void should_park_car_at_no2_parking_lot_and_get_ticket_successfully_when_one_car_parked_at_no1_parking_lot_which_has_10_parking_space_and_two_cars_parked_at_no2_parking_lot_which_has_30_parking_space_and_parking_robot_and_one_car() {
         ParkingLot smallerVacancyRateParkingLot = new ParkingLot(10);
         ParkingLot biggestVacancyRateParkingLot = new ParkingLot(30);
         smallerVacancyRateParkingLot.parkingCarAndGetTicket(new Car());
@@ -42,7 +42,7 @@ class ParkingRobotTest {
      * then 停车成功并获得车票，停在了1号停车位
      * */
     @Test
-    void should_park_car_at_no1_parking_lot_and_get_ticket_successfully_when_parking_car_given_two_parking_lot_and_no1_parking_lot_has_same_vacancy_rate_with_no2_parking_lot_and_parking_robot_and_one_car(){
+    void should_park_car_at_no1_parking_lot_and_get_ticket_successfully_when_parking_car_given_no1_parking_lot_has_same_vacancy_rate_with_no2_parking_lot_and_parking_robot_and_one_car() {
         ParkingLot firstBiggestVacancyRateParkingLot = new ParkingLot(10);
         ParkingLot secondBiggestVacancyRateParkingLot = new ParkingLot(20);
         Map<String, ParkingLot> parkingLotMap = new HashMap<>();
@@ -61,7 +61,7 @@ class ParkingRobotTest {
      * then 停车失败并抛异常
      * */
     @Test
-    void should_park_car_fail_and_throw_exception_when_parking_car_given_two_parking_lot_and_no1_parking_lot_has_400_full_parking_space_and_no2_parking_lot_has_600_full_parking_space_and_parking_robot_and_one_car(){
+    void should_park_car_fail_and_throw_exception_when_parking_car_given_400_cars_parked_at_no1_parking_lot_and_600_cars_parked_at_no2_parking_lot_and_parking_robot_and_one_car() {
         ParkingLot firstBiggestVacancyRateParkingLot = new ParkingLot(400);
         ParkingLot secondBiggestVacancyRateParkingLot = new ParkingLot(600);
         for (int i = 0; i < 400; i++) {
@@ -85,7 +85,7 @@ class ParkingRobotTest {
      * then 停车成功并获得车票
      * */
     @Test
-    void should_park_car_and_get_ticket_successfully_when_parking_car_given_one_parking_lot_has_10_empty_parking_space(){
+    void should_park_car_and_get_ticket_successfully_when_parking_car_given_one_parking_lot_has_10_empty_parking_space() {
         ParkingLot parkingLot = new ParkingLot(10);
         Map<String, ParkingLot> parkingLotMap = new HashMap<>();
         parkingLotMap.put("1", parkingLot);
@@ -102,7 +102,7 @@ class ParkingRobotTest {
      * then 抛不能取车异常
      * */
     @Test
-    void should_throw_disabled_pike_up_car_when_take_the_car_given_parkingLot_has_one_car_and_parking_robot_and_one_matched_ticket(){
+    void should_throw_disabled_pike_up_car_when_take_the_car_given_parkingLot_has_one_car_and_parking_robot_and_one_matched_ticket() {
         ParkingLot parkingLot = new ParkingLot(10);
         Map<String, ParkingLot> parkingLotMap = new HashMap<>();
         parkingLotMap.put("1", parkingLot);
