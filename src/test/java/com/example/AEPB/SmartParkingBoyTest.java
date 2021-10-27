@@ -73,7 +73,7 @@ class SmartParkingBoyTest {
      * then 取车成功
      * */
     @Test
-    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_cars_and_smart_parking_boy_and_one_matched_ticket() {
+    void should_get_car_successfully_when_take_the_car_given_No1_parkingLot_has_one_car_and_smart_parking_boy_and_one_matched_ticket() {
         Map<String, ParkingLot> parkingLotMap = creatParkingLots();
         Car car = new Car();
         Ticket ticket = parkingLotMap.get("1").parkingCarAndGetTicket(car);

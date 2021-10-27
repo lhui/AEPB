@@ -1,4 +1,4 @@
-package com.example.AEPB;
+package com.example.AEPB.parkingrobot;
 
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.ParkingLot;
@@ -11,17 +11,13 @@ import java.util.Map;
 public class ParkingRobot extends SmartParkingBoy {
     private Map<String, ParkingLot> parkingLotMap;
 
-    public ParkingRobot() {
-        super();
-    }
-
     public ParkingRobot(Map<String, ParkingLot> parkingLotMap) {
         this.parkingLotMap = parkingLotMap;
     }
 
     @Override
     public Car pickUpCar(Ticket ticket) {
-        return null;
+        throw new DisabledPikeUpCarException("Parking Robot Disabled Pike Up Car!!!!!!");
     }
 
     @Override
