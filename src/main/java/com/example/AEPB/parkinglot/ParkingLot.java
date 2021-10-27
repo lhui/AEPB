@@ -12,14 +12,22 @@ import static java.util.Objects.isNull;
 
 public class ParkingLot {
     private Map<Ticket, Car> parkingLotMap = new HashMap<>();
-    private static final int MAX_PARKING_COUNT = 50;
+    private int maxParkingCount;
+
+    public ParkingLot() {
+        this.maxParkingCount = 50;
+    }
+
+    public ParkingLot(int maxParkingCount) {
+        this.maxParkingCount = maxParkingCount;
+    }
 
 
     public Ticket parkingCarAndGetTicket(Car car) {
         if (isNull(car)) {
             throw new CanNotGetTicketException("You need at least one car to get a ticket.");
         }
-        if (parkingLotMap.size() == MAX_PARKING_COUNT) {
+        if (parkingLotMap.size() == maxParkingCount) {
             throw new ParkingLotIsFullException("The parkingLot is full, can not parking any car.");
         }
         Ticket ticket = new Ticket();
@@ -40,10 +48,14 @@ public class ParkingLot {
     }
 
     public boolean checkParkingLotIsFull() {
-        return parkingLotMap.size() == MAX_PARKING_COUNT;
+        return parkingLotMap.size() == maxParkingCount;
     }
 
-    public int getParkingLotCarCount() {
-        return MAX_PARKING_COUNT - parkingLotMap.size();
+    public int getParkingLotRemainCount() {
+        return maxParkingCount - parkingLotMap.size();
+    }
+
+    public int getMaxParkingCount() {
+        return maxParkingCount;
     }
 }

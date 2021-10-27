@@ -14,6 +14,9 @@ public class SmartParkingBoy {
         this.parkingLotMap = parkingLotMap;
     }
 
+    public SmartParkingBoy() {
+    }
+
     public Car pickUpCar(Ticket ticket) {
         for (int parkingLotNumber = 1; parkingLotNumber <= 10; parkingLotNumber++) {
             ParkingLot parkingLot = parkingLotMap.get(String.valueOf(parkingLotNumber));
@@ -37,8 +40,8 @@ public class SmartParkingBoy {
     private int getTheMostAvailableParkingLot() {
         int mostParkingNumber = 1;
         for (int parkingLotNumber = 2; parkingLotNumber <= 10; parkingLotNumber++) {
-            if (parkingLotMap.get(String.valueOf(mostParkingNumber)).getParkingLotCarCount()
-                    < parkingLotMap.get(String.valueOf(parkingLotNumber)).getParkingLotCarCount()) {
+            if (parkingLotMap.get(String.valueOf(mostParkingNumber)).getParkingLotRemainCount()
+                    < parkingLotMap.get(String.valueOf(parkingLotNumber)).getParkingLotRemainCount()) {
                 mostParkingNumber = parkingLotNumber;
             }
         }
