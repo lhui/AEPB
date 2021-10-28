@@ -2,8 +2,8 @@ package com.example.AEPB.parkingboy;
 
 import com.example.AEPB.parkinglot.Car;
 import com.example.AEPB.parkinglot.ParkingLot;
-import com.example.AEPB.parkinglot.exception.ParkingLotIsFullException;
 import com.example.AEPB.parkinglot.Ticket;
+import com.example.AEPB.parkinglot.exception.ParkingLotIsFullException;
 
 import java.util.Map;
 
@@ -21,9 +21,6 @@ public class ParkingBoy {
             parkingLotMap.put(String.valueOf(parkingLotNumber), parkingLot);
             return car;
         }
-        parkingLotMap.forEach((key, value) -> {
-
-        });
         return null;
     }
 
